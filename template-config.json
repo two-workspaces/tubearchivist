@@ -6,7 +6,7 @@
       "name": "tubearchivist",
       "deploy": {
         "startCommand": null,
-        "healthcheckPath": "/api/health/",
+        "healthcheckPath": "/healthcheck",
         "healthcheckTimeout": 900,
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
