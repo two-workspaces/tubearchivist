@@ -1,0 +1,124 @@
+{
+  "buckets": {},
+  "services": {
+    "74277d54-245d-487a-95a0-10bbb57b6c18": {
+      "icon": "https://raw.githubusercontent.com/tubearchivist/tubearchivist/master/assets/tube-archivist-logo-dark.png",
+      "name": "tubearchivist",
+      "deploy": {
+        "startCommand": null,
+        "healthcheckPath": "/api/health/",
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 10
+      },
+      "source": {
+        "repo": "https://github.com/nomideusz/tubearchivist-railway",
+        "rootDirectory": "ta"
+      },
+      "variables": {
+        "PORT": {
+          "isOptional": false,
+          "description": "Port for Railway healthcheck probing. Do not change.",
+          "defaultValue": "8000"
+        },
+        "TA_USERNAME": {
+          "isOptional": false,
+          "description": "Initial admin username.",
+          "defaultValue": "admin"
+        },
+        "TA_PASSWORD": {
+          "isOptional": false,
+          "description": "Initial admin password.",
+          "defaultValue": "${{secret(16)}}"
+        },
+        "TA_HOST": {
+          "isOptional": false,
+          "description": "Public URL of this instance. Do not change.",
+          "defaultValue": "https://${{RAILWAY_PUBLIC_DOMAIN}}"
+        },
+        "ES_URL": {
+          "isOptional": false,
+          "description": "Elasticsearch connection. Do not change.",
+          "defaultValue": "http://${{archivist-es.RAILWAY_PRIVATE_DOMAIN}}:9200"
+        },
+        "ELASTIC_PASSWORD": {
+          "isOptional": false,
+          "description": "Elasticsearch password, shared with the archivist-es service. Do not change.",
+          "defaultValue": "${{archivist-es.ELASTIC_PASSWORD}}"
+        },
+        "REDIS_CON": {
+          "isOptional": false,
+          "description": "Redis connection. Do not change.",
+          "defaultValue": "redis://${{archivist-redis.RAILWAY_PRIVATE_DOMAIN}}:6379"
+        },
+        "TZ": {
+          "isOptional": false,
+          "description": "Time zone for download schedules.",
+          "defaultValue": "UTC"
+        }
+      },
+      "networking": {
+        "serviceDomains": {
+          "<hasDomain>:8000": {
+            "port": 8000
+          }
+        }
+      },
+      "volumeMounts": {
+        "74277d54-245d-487a-95a0-10bbb57b6c18": {
+          "mountPath": "/data"
+        }
+      }
+    },
+    "f9441d81-c794-497d-b374-e990bdbbe1ca": {
+      "icon": "https://raw.githubusercontent.com/tubearchivist/tubearchivist/master/assets/tube-archivist-logo-dark.png",
+      "name": "archivist-es",
+      "deploy": {
+        "startCommand": null,
+        "healthcheckPath": null,
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 10
+      },
+      "source": {
+        "repo": "https://github.com/nomideusz/tubearchivist-railway",
+        "rootDirectory": "es"
+      },
+      "variables": {
+        "ELASTIC_PASSWORD": {
+          "isOptional": false,
+          "description": "Elasticsearch password, shared with the tubearchivist service.",
+          "defaultValue": "${{secret(24)}}"
+        }
+      },
+      "networking": {
+        "serviceDomains": {}
+      },
+      "volumeMounts": {
+        "f9441d81-c794-497d-b374-e990bdbbe1ca": {
+          "mountPath": "/usr/share/elasticsearch/data"
+        }
+      }
+    },
+    "e74fbda1-9f31-4d2f-902b-df16228e3f8c": {
+      "icon": "https://raw.githubusercontent.com/docker-library/docs/master/redis/logo.png",
+      "name": "archivist-redis",
+      "deploy": {
+        "startCommand": null,
+        "healthcheckPath": null,
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 10
+      },
+      "source": {
+        "image": "redis:7"
+      },
+      "variables": {},
+      "networking": {
+        "serviceDomains": {}
+      },
+      "volumeMounts": {
+        "e74fbda1-9f31-4d2f-902b-df16228e3f8c": {
+          "mountPath": "/data"
+        }
+      }
+    }
+  }
+}
