@@ -7,7 +7,7 @@ RUN { \
   echo 'discovery.type: single-node'; \
   echo 'xpack.security.enabled: true'; \
   echo 'path.repo: /usr/share/elasticsearch/data/snapshot'; \
-  echo 'network.bind_host: ["::", "0.0.0.0"]'; \
+  echo 'network.bind_host: "::"'; \
 } >> /usr/share/elasticsearch/config/elasticsearch.yml
 
 ENV ES_JAVA_OPTS="-Xms512m -Xmx512m"
