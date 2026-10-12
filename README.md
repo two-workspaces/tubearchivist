@@ -1,6 +1,6 @@
 # Deploy and Host TubeArchivist on Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/tubearchivist?utm_medium=integration&utm_source=button&utm_campaign=tubearchivist)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/tubearchivist?referralCode=sLjDXb&utm_medium=integration&utm_source=button&utm_campaign=tubearchivist)
 
 [TubeArchivist](https://www.tubearchivist.com/) is a self-hosted YouTube media server — subscribe to channels, download videos with yt-dlp, index everything with full-text search, and watch ad-free in a clean web player with continue-watching progress. Your archive survives deleted videos, terminated channels, and region blocks.
 
