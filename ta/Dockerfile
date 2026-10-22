@@ -1,4 +1,4 @@
-FROM bbilly1/tubearchivist:v0.5.10
+FROM bbilly1/tubearchivist:v0.5.12
 
 # Healthcheck answered by nginx directly: Railway probes by private hostname,
 # which Django's ALLOWED_HOSTS (built from TA_HOST) rejects with 400.

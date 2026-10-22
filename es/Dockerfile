@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:8.19.0
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.19.9
 
 # Settings the TubeArchivist compose passes as env vars, baked into the config
 # instead — Railway variable names can't contain dots. network.bind_host adds
