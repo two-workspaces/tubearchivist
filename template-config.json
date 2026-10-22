@@ -12,7 +12,7 @@
         "restartPolicyMaxRetries": 10
       },
       "source": {
-        "repo": "https://github.com/nomideusz/tubearchivist-railway",
+        "repo": "https://github.com/two-workspaces/tubearchivist",
         "rootDirectory": "ta"
       },
       "variables": {
@@ -80,7 +80,7 @@
         "restartPolicyMaxRetries": 10
       },
       "source": {
-        "repo": "https://github.com/nomideusz/tubearchivist-railway",
+        "repo": "https://github.com/two-workspaces/tubearchivist",
         "rootDirectory": "es"
       },
       "variables": {

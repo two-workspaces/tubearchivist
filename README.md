@@ -26,7 +26,7 @@ This template deploys the full three-service stack: the TubeArchivist app, an El
 - [TubeArchivist documentation](https://docs.tubearchivist.com/)
 - [Companion browser extension](https://github.com/tubearchivist/browser-extension)
 - [Jellyfin / Plex / Kodi integrations](https://docs.tubearchivist.com/integrations/)
-- [Template source on GitHub](https://github.com/nomideusz/tubearchivist-railway)
+- [Template source on GitHub](https://github.com/two-workspaces/tubearchivist)
 
 ### Implementation Details
 
